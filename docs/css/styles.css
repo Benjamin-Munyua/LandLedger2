@@ -1,0 +1,456 @@
+/* styles.css - Dashboard and component styles placeholder */
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6fa;
+    margin: 0;
+    padding: 0;
+    color: #222;
+}
+
+#app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 40px 0;
+}
+
+.landing-container, #dashboard {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 32px 24px;
+    width: 100%;
+    max-width: 800px;
+    margin: 24px auto;
+}
+
+h1, h2, h3 {
+    color: #2a4d69;
+    margin-top: 0;
+}
+
+input, button, select {
+    font-size: 1rem;
+    padding: 8px 12px;
+    margin: 6px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background: #2a4d69;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+button:hover {
+    background: #1e3550;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+form input {
+    flex: 1 1 150px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    background: #fafbfc;
+}
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 8px 10px;
+    text-align: left;
+}
+table th {
+    background: #e9f1f7;
+}
+
+.wallet-section {
+    margin-top: 24px;
+    text-align: center;
+}
+
+#searchResults, #gov-withdraw-status, #reg-register-status, #ver-verify-status, #cli-purchase-status, #cli-transfer-status {
+    margin: 12px 0;
+    min-height: 20px;
+}
+
+/* Search Results Styles */
+.search-results {
+    margin: 20px 0;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.land-info {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border: 1px solid #e9ecef;
+}
+
+.land-info p {
+    margin: 5px 0;
+    color: #495057;
+}
+
+.history-section {
+    margin: 20px 0;
+}
+
+.history-section h4 {
+    color: #2a4d69;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.history-table thead {
+    background: #2a4d69;
+    color: #fff;
+}
+
+.history-table th,
+.history-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.history-table tbody tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+.history-table tbody tr:hover {
+    background: #f5f5f5;
+}
+
+.action-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: 500;
+}
+
+.action-badge.purchase {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+
+.action-badge.transfer {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.action-badge.sale {
+    background: #fff3e0;
+    color: #f57c00;
+}
+
+.action-badge.initial {
+    background: #f3e5f5;
+    color: #7b1fa2;
+}
+
+.no-data {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    background: #f8f9fa;
+    border-radius: 4px;
+    border: 1px dashed #dee2e6;
+}
+
+/* Loading state */
+#searchResults p {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
+
+#searchResults p[style*="color:red"] {
+    background: #fff3f3;
+    border: 1px solid #ffcdd2;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+    opacity: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 1;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #2a4d69;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #666;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+/* History Button Styles */
+.history-btn {
+    background: #2a4d69;
+    color: #fff;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    cursor: pointer;
+    margin-left: 8px;
+    transition: background 0.2s;
+}
+
+.history-btn:hover {
+    background: #1e3550;
+}
+
+.history-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Loading State for Modal */
+.modal-loading {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
+
+/* Spinner */
+.spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.spinner-inner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #2a4d69;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.spinner-text {
+    margin-top: 10px;
+    color: #666;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error Message */
+.error-message {
+    display: flex;
+    align-items: center;
+    background: #fff3f3;
+    border: 1px solid #ffcdd2;
+    border-radius: 4px;
+    padding: 12px;
+    margin: 10px 0;
+}
+
+.error-icon {
+    background: #f44336;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    font-weight: bold;
+}
+
+.error-text {
+    color: #d32f2f;
+}
+
+/* Success Message */
+.success-message {
+    display: flex;
+    align-items: center;
+    background: #e8f5e9;
+    border: 1px solid #c8e6c9;
+    border-radius: 4px;
+    padding: 12px;
+    margin: 10px 0;
+}
+
+.success-icon {
+    background: #4caf50;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    font-weight: bold;
+}
+
+.success-text {
+    color: #2e7d32;
+}
+
+/* Form Fields */
+.form-field {
+    margin-bottom: 16px;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 6px;
+    color: #2a4d69;
+    font-weight: 500;
+}
+
+.form-field input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-field input:focus {
+    outline: none;
+    border-color: #2a4d69;
+    box-shadow: 0 0 0 2px rgba(42, 77, 105, 0.1);
+}
+
+/* Button States */
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+button.loading {
+    position: relative;
+    color: transparent;
+}
+
+button.loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin: -8px 0 0 -8px;
+    border: 2px solid #fff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Land ID Cell Styles */
+.land-id-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.land-id-cell span {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.land-id-cell .history-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+} 
