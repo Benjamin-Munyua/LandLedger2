@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Land Registry Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="app"></div>
+    
+    <!-- External Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <script src="env.js"></script>
+    
+    <!-- Core functionality -->
+    <script src="js/contract.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/shareManager.js"></script>
+    
+    <!-- UI Components -->
+    <script src="js/ui/modal.js"></script>
+    <script src="js/ui/dashboard.js"></script>
+    <script src="js/ui/components.js"></script>
+    
+    <!-- Role-specific dashboards -->
+    <script src="js/roles/government.js"></script>
+    <script src="js/roles/registrar.js"></script>
+    <script src="js/roles/verifier.js"></script>
+    <script src="js/roles/client.js"></script>
+    
+    <!-- Main application -->
+    <script src="js/main.js"></script>
+</body>
+</html> 
